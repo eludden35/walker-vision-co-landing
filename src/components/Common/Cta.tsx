@@ -7,7 +7,7 @@ const Cta = () => {
     <>
       <div
         className="cta-area style-one position-relative overflow-hidden z-1 mx-xxl-4 mx-2 round-40"
-        style={{ backgroundImage: `url(/images/cta/cta-bg-1.jpg)` }}
+        style={{ backgroundImage: `url(/images/cta/cta-bg.png)` }}
       >
         <Image
           src="/images/cta/shape-1.png"
