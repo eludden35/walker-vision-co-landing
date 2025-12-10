@@ -39,17 +39,17 @@ const footerData = {
       contactInfo: [
         {
           label: "Address:",
-          value: "952 Bad Hill St, Asheville, NC 28, USA",
+          value: "123 Main St, Anytown, USA",
           type: "text",
         },
         {
           label: "Email:",
-          value: "hello@edifico.com",
+          value: "hello@walkervisionco.com",
           type: "email",
         },
         {
           label: "Phone:",
-          value: "+96 76867 8869",
+          value: "+1 (405) 888-8888",
           type: "tel",
         },
       ],
@@ -58,25 +58,25 @@ const footerData = {
   socialLinks: [
     {
       icon: "ri-facebook-fill",
-      url: "https://www.facebook.com/",
+      url: "https://www.facebook.com/walker_vision_co",
     },
     {
       icon: "ri-twitter-x-line",
-      url: "https://x.com/?lang=en",
+      url: "https://x.com/walker_vision_co",
     },
     {
       icon: "ri-instagram-line",
-      url: "https://www.instagram.com/",
+      url: "https://www.instagram.com/walker_vision_co/",
     },
     {
       icon: "ri-linkedin-fill",
-      url: "https://www.linkedin.com/",
+      url: "https://www.linkedin.com/company/walker-vision-co/",
     },
   ],
   copyright: {
     text: "is Proudly Owned by",
-    owner: "EnvyTheme",
-    ownerUrl: "https://support.envytheme.com/",
+    owner: "Walker Vision Co",
+    ownerUrl: "https://walkervisionco.com/",
   },
 };
 

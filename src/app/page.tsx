@@ -42,11 +42,11 @@ export default function Home() {
 
       {/* <Testimonials /> */}
 
-      <MeetTheTeams />
+      {/* <MeetTheTeams /> */}
 
-      <AreasWeServe />
+      {/* <AreasWeServe /> */}
 
-      <BlogPosts />
+      {/* <BlogPosts /> */}
 
       <Footer />
     </>
