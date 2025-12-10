@@ -1,0 +1,98 @@
+/*---------------------------------
+    Footer CSS 
+-----------------------------------*/
+.footer-area {
+  padding-bottom: 34px;
+}
+.footer-area.style-one {
+  border-radius: 40px;
+  margin-bottom: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.footer-area .footer-large-text {
+  background-color: #190E12;
+  display: flex;
+  justify-content: space-between;
+  color: #402E34;
+  font-size: 15.8vw;
+  line-height: 0.85;
+  padding: 37px 15px;
+  margin-bottom: 34px;
+}
+.footer-area .footer-large-text span {
+  display: inline-block;
+}
+
+.footer-widget .footer-widget-title {
+  padding-bottom: 14px;
+  margin-bottom: 13px;
+}
+.footer-widget .footer-widget-title:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 65%;
+  height: 1px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+.footer-widget .footer-menu.style-one li {
+  margin-bottom: 10px;
+}
+.footer-widget .footer-menu.style-one li:last-child {
+  margin-bottom: 0;
+}
+.footer-widget .footer-menu.style-one li a {
+  position: relative;
+  color: var(--altoColor);
+}
+.footer-widget .footer-menu.style-one li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 0;
+  height: 1px;
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--primaryColor);
+  transition: var(--transition);
+}
+.footer-widget .footer-menu.style-one li a:hover {
+  color: var(--primaryColor);
+}
+.footer-widget .footer-menu.style-one li a:hover:after {
+  width: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+.footer-widget .contact-info-list li {
+  margin-bottom: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer-widget .contact-info-list li:last-child {
+  margin-bottom: 0;
+}
+.footer-widget .contact-info-list li a {
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer-widget .contact-info-list li a:hover {
+  color: var(--primaryColor);
+}
+
+@media only screen and (min-width: 1600px) {
+  .footer-area.style-one {
+    margin-bottom: 18px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .footer-area.style-one .container-fluid {
+    padding-left: 47px;
+    padding-right: 47px;
+  }
+  .footer-area.style-two .container-fluid {
+    padding-left: 68px;
+    padding-right: 68px;
+  }
+}/*# sourceMappingURL=footer.css.map */

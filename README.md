@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Walker Vision Co - Renovation Homepage
 
-## Getting Started
+A Next.js 15 project featuring the Renovation homepage variant from the Edifico component library, customized for Walker Vision Co.
 
-First, run the development server:
+## Setup
 
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Add the logo file:
+   - Place your Walker Vision Co logo at `public/images/logo.png`
+   - The logo should be a gold W (color: #b49e6c) with no wording
+   - Recommended dimensions: 120x40px (or maintain aspect ratio)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/` - Next.js App Router pages
+- `src/components/` - React components
+  - `Layout/` - Site-wide layout components (Navbar, Footer, etc.)
+  - `Common/` - Reusable common components
+  - `HomeRenovation/` - Homepage-specific components
+- `src/styles/` - CSS stylesheets
+- `public/images/` - Image assets
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js 15.5.2
+- React 19.1.0
+- TypeScript 5.x
+- Bootstrap 5.3.8
+- Swiper 11.2.10
+- Remixicon 4.6.0
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Fully responsive design
+- Dark theme support
+- Modern UI with smooth animations
+- Optimized images via Next.js Image component
+- TypeScript for type safety
