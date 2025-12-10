@@ -73,7 +73,7 @@ const AboutUsContent = () => {
                     construction and high-end design. Whether you are updating a
                     kitchen or reimagining your entire home, we bring a fresh
                     perspective, unwavering attention to detail, and a
-                    contemporary approach to every project. We don't just build;
+                    contemporary approach to every project. We don&apos;t just build;
                     we bring your vision to life.
                   </p>
 

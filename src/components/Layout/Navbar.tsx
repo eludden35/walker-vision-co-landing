@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 // Menus data
 import { menus } from "@/components/Layout/Menus";
 

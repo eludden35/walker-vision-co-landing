@@ -21,7 +21,7 @@ const Cta = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-7 mb-sm-20">
               <h2 className="section-title style-two fw-normal text-white mb-0">
-                Let's Build Your{" "}
+                Let&apos;s Build Your{" "}
                 <span className="fw-black">Dream Home Today</span> – Contact Us
                 For A Consultation!
               </h2>
