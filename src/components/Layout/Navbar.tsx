@@ -214,7 +214,7 @@ function Navbar() {
             <div className="other-options d-flex flex-wrap align-items-center justify-content-end">
               <div className="option-item">
                 <Link
-                  href="/contact-us"
+                  href="/get-a-quote/"
                   className="btn walker-cta-btn"
                 >
                   <span className="btn-text">Get a Quote</span>
@@ -268,7 +268,7 @@ function Navbar() {
               />
             </ul>
             <Link
-              href="/contact-us"
+              href="/get-a-quote/"
               className="btn walker-mobile-cta-btn w-100 mt-4"
               onClick={handleClose}
             >

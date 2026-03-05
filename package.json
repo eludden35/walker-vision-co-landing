@@ -15,7 +15,9 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "19.1.0",
     "remixicon": "^4.7.0",
-    "swiper": "^11.2.10"
+    "resend": "^6.9.3",
+    "swiper": "^11.2.10",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

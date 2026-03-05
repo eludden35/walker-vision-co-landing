@@ -64,6 +64,10 @@ This files table contents are outlined below>>>>>
 /*---------------------------------
     General Styles
 -----------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
 }

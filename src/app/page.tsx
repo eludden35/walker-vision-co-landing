@@ -6,42 +6,40 @@ import HeroBanner from "@/components/HomeRenovation/HeroBanner";
 import OurCommitment from "@/components/HomeRenovation/OurCommitment";
 import OurProjects from "@/components/HomeRenovation/OurProjects";
 import Footer from "@/components/Layout/Footer";
+import HashScrollHandler from "@/components/Layout/HashScrollHandler";
 import Navbar from "@/components/Layout/Navbar";
 
 export default function Home() {
   return (
     <>
+      <HashScrollHandler />
       <Navbar />
 
       <HeroBanner />
 
-      <ExploreServicesCategories />
+      <section id="services">
+        <ExploreServicesCategories />
+      </section>
 
       <div className="pb-120">
         <AnimationMovingText />
       </div>
 
-      <AboutUsContent />
-
-      {/* <WhatWeOffers /> */}
+      <section id="about">
+        <AboutUsContent />
+      </section>
 
       <OurCommitment />
 
-      <OurProjects />
+      <section id="projects">
+        <OurProjects />
+      </section>
 
       <div className="pb-120">
         <AnimationMovingText />
       </div>
 
       <Cta />
-
-      {/* <Testimonials /> */}
-
-      {/* <MeetTheTeams /> */}
-
-      {/* <AreasWeServe /> */}
-
-      {/* <BlogPosts /> */}
 
       <Footer />
     </>

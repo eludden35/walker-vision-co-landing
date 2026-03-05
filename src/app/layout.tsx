@@ -13,6 +13,9 @@ import "../styles/responsive.css";
 // Dark theme
 import "../styles/dark-theme.css";
 
+// Quote & contact pages
+import "../styles/quote.css";
+
 import type { Metadata } from "next";
 import { DM_Sans, Exo, Martian_Mono } from "next/font/google";
 import GoTop from "@/components/Layout/GoTop";

@@ -7,31 +7,11 @@ const footerData = {
     {
       title: "Quick Links",
       menuItems: [
-        { text: "Service", url: "/services" },
-        { text: "Pricing", url: "/pricing-plan" },
-        { text: "Projects", url: "/projects" },
-        { text: "Team", url: "/team" },
-        { text: "About", url: "/about-us" },
-      ],
-    },
-    {
-      title: "Explore",
-      menuItems: [
-        { text: "Privacy Policy", url: "/privacy-policy" },
-        { text: "Terms of Service", url: "/terms-conditions" },
-        { text: "FAQ", url: "/faq" },
-        { text: "Careers", url: "/careers" },
-        { text: "Contact Us", url: "/contact-us" },
-      ],
-    },
-    {
-      title: "Company",
-      menuItems: [
-        { text: "Location", url: "/location" },
-        { text: "Works", url: "/projects" },
-        { text: "Studio", url: "/projects" },
-        { text: "News", url: "/blogs" },
-        { text: "Categories", url: "/properties" },
+        { text: "Services", url: "/#services" },
+        { text: "Projects", url: "/#projects" },
+        { text: "About", url: "/#about" },
+        { text: "Get a Quote", url: "/get-a-quote/" },
+        { text: "Contact Us", url: "/contact-us/" },
       ],
     },
     {
