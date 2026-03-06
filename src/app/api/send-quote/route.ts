@@ -4,7 +4,8 @@ import { QuotePayloadSchema } from "@/lib/quoteSchema";
 import { calculateTotal, buildLineItems } from "@/lib/pricing";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const RECIPIENT = process.env.QUOTE_RECIPIENT_EMAIL || "hello@walkervisionco.com";
+const RECIPIENT =
+  process.env.QUOTE_RECIPIENT_EMAIL || "hello@walkervisionco.com";
 
 export async function POST(request: Request) {
   try {
@@ -19,13 +20,16 @@ export async function POST(request: Request) {
     const items = buildLineItems(parsed.selections);
 
     if (total === 0) {
-      return NextResponse.json({ error: "No services selected" }, { status: 400 });
+      return NextResponse.json(
+        { error: "No services selected" },
+        { status: 400 },
+      );
     }
 
     const lineItemsHtml = items
       .map(
         (item) =>
-          `<tr><td style="padding:8px 12px;border-bottom:1px solid #eee">${item.label}</td><td style="padding:8px 12px;border-bottom:1px solid #eee;text-align:right;font-weight:600">$${item.amount.toLocaleString()}</td></tr>`
+          `<tr><td style="padding:8px 12px;border-bottom:1px solid #eee">${item.label}</td><td style="padding:8px 12px;border-bottom:1px solid #eee;text-align:right;font-weight:600">$${item.amount.toLocaleString()}</td></tr>`,
       )
       .join("");
 
@@ -61,14 +65,14 @@ export async function POST(request: Request) {
     `;
 
     await resend.emails.send({
-      from: "Walker Vision Co <onboarding@resend.dev>",
+      from: "Walker Vision Co <noreply.walkervisionco.com>",
       to: RECIPIENT,
       subject: `New Quote Request from ${parsed.contact.name} — $${total.toLocaleString()}`,
       html: emailHtml,
     });
 
     await resend.emails.send({
-      from: "Walker Vision Co <onboarding@resend.dev>",
+      from: "Walker Vision Co <noreply.walkervisionco.com",
       to: parsed.contact.email,
       subject: `Your Quote from Walker Vision Co — $${total.toLocaleString()}`,
       html: emailHtml.replace("New Quote Request", "Your Quote Estimate"),
@@ -79,7 +83,7 @@ export async function POST(request: Request) {
     console.error("Quote submission error:", error);
     return NextResponse.json(
       { error: "Failed to process quote" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
