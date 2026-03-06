@@ -72,7 +72,7 @@ export async function POST(request: Request) {
     });
 
     await resend.emails.send({
-      from: "Walker Vision Co <noreply.walkervisionco.com",
+      from: "Walker Vision Co <noreply.walkervisionco.com>",
       to: parsed.contact.email,
       subject: `Your Quote from Walker Vision Co — $${total.toLocaleString()}`,
       html: emailHtml.replace("New Quote Request", "Your Quote Estimate"),
