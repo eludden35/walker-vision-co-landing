@@ -2,8 +2,15 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { QuotePayloadSchema } from "@/lib/quoteSchema";
 import { calculateTotal, buildLineItems } from "@/lib/pricing";
+import {
+  generateEstimatePdf,
+  generateEstimateNumber,
+  type EstimateData,
+} from "@/lib/generateEstimatePdf";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 const RECIPIENT =
   process.env.QUOTE_RECIPIENT_EMAIL || "hello@walkervisionco.com";
 
@@ -26,6 +33,29 @@ export async function POST(request: Request) {
       );
     }
 
+    const estimateNumber = generateEstimateNumber();
+    const date = new Date().toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+    const estimateData: EstimateData = {
+      estimateNumber,
+      date,
+      contact: {
+        name: parsed.contact.name,
+        email: parsed.contact.email,
+        phone: parsed.contact.phone,
+        address: parsed.contact.address,
+        notes: parsed.contact.notes,
+      },
+      items,
+      total,
+    };
+
+    const pdfBuffer = await generateEstimatePdf(estimateData);
+
     const lineItemsHtml = items
       .map(
         (item) =>
@@ -38,6 +68,7 @@ export async function POST(request: Request) {
         <div style="background:#2D1C22;padding:24px;text-align:center">
           <h1 style="color:#af9e6d;margin:0;font-size:24px">Walker Vision Co</h1>
           <p style="color:#fff;margin:8px 0 0">New Quote Request</p>
+          <p style="color:#af9e6d;margin:6px 0 0;font-size:13px">${estimateNumber}</p>
         </div>
         <div style="padding:24px;background:#fff">
           <h2 style="margin:0 0 16px;color:#2D1C22">Customer Information</h2>
@@ -57,6 +88,10 @@ export async function POST(request: Request) {
               <td style="padding:12px;font-weight:700;font-size:18px;text-align:right;color:#af9e6d">$${total.toLocaleString()}</td>
             </tr>
           </table>
+
+          <p style="margin:20px 0 0;padding:14px;background:#f9f6ef;border-radius:6px;color:#2D1C22;font-size:13px;text-align:center">
+            Your detailed estimate is attached as a PDF.
+          </p>
         </div>
         <div style="background:#f5f5f5;padding:16px;text-align:center;color:#888;font-size:13px">
           This quote was generated from walkervisionco.com
@@ -64,11 +99,19 @@ export async function POST(request: Request) {
       </div>
     `;
 
+    const pdfAttachment = {
+      filename: `${estimateNumber}.pdf`,
+      content: pdfBuffer,
+    };
+
+    const resend = getResend();
+
     await resend.emails.send({
       from: "Walker Vision Co <no-reply@noreply.walkervisionco.com>",
       to: RECIPIENT,
       subject: `New Quote Request from ${parsed.contact.name} — $${total.toLocaleString()}`,
       html: emailHtml,
+      attachments: [pdfAttachment],
     });
 
     await resend.emails.send({
@@ -76,6 +119,7 @@ export async function POST(request: Request) {
       to: parsed.contact.email,
       subject: `Your Quote from Walker Vision Co — $${total.toLocaleString()}`,
       html: emailHtml.replace("New Quote Request", "Your Quote Estimate"),
+      attachments: [pdfAttachment],
     });
 
     return NextResponse.json({ success: true });

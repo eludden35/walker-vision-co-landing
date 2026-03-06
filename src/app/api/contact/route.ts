@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { ContactPayloadSchema } from "@/lib/quoteSchema";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 const RECIPIENT = process.env.QUOTE_RECIPIENT_EMAIL || "hello@walkervisionco.com";
 
 export async function POST(request: Request) {
@@ -37,7 +39,7 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: "Walker Vision Co <onboarding@resend.dev>",
       to: RECIPIENT,
       subject: `Contact: ${parsed.subject} — from ${parsed.name}`,
