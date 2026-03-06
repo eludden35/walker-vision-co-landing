@@ -426,9 +426,9 @@ function EstimateDocument({ data }: { data: EstimateData }) {
             <View>
               <Text style={s.footerCompany}>Walker Vision Co.</Text>
               <Text style={s.footerDetail}>
-                hello@walkervisionco.com | +1 (405) 888-8888
+                walkerco.constructioncompany@gmail.com | +1 (901) 318-2013
               </Text>
-              <Text style={s.footerDetail}>123 Main St, Anytown, USA</Text>
+              <Text style={s.footerDetail}>1804 N McAuthor, Oklahoma City, OK, USA</Text>
               <Text style={s.footerDetail}>walkervisionco.com</Text>
             </View>
           </View>
