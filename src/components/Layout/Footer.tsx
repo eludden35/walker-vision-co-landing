@@ -19,17 +19,17 @@ const footerData = {
       contactInfo: [
         {
           label: "Address:",
-          value: "123 Main St, Anytown, USA",
+          value: "1804 N McAuthor, Oklahoma City, OK, USA",
           type: "text",
         },
         {
           label: "Email:",
-          value: "hello@walkervisionco.com",
+          value: "walkerco.constructioncompany@gmail.com",
           type: "email",
         },
         {
           label: "Phone:",
-          value: "+1 (405) 888-8888",
+          value: "+1 (901) 318-2013",
           type: "tel",
         },
       ],

@@ -133,7 +133,7 @@ export default function ContactForm() {
         {status === "error" && (
           <div className="alert alert-danger py-2 mt-3 mb-0">
             Something went wrong. Please call us at{" "}
-            <a href="tel:+14058888888" className="fw-bold">+1 (405) 888-8888</a>.
+            <a href="tel:+19013182013" className="fw-bold">+1 (901) 318-2013</a>.
           </div>
         )}
 

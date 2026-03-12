@@ -39,7 +39,9 @@ export default function ContactUsPage() {
                 </div>
                 <div>
                   <h6 className="fw-bold mb-1">Address</h6>
-                  <p className="text-muted mb-0">123 Main St, Anytown, USA</p>
+                  <p className="text-muted mb-0">
+                    1804 N McAuthor, Oklahoma City, OK, USA
+                  </p>
                 </div>
               </div>
 
@@ -49,8 +51,11 @@ export default function ContactUsPage() {
                 </div>
                 <div>
                   <h6 className="fw-bold mb-1">Email</h6>
-                  <a href="mailto:hello@walkervisionco.com" className="walker-contact-link">
-                    hello@walkervisionco.com
+                  <a
+                    href="mailto:walkerco.constructioncompany@gmail.com"
+                    className="walker-contact-link"
+                  >
+                    walkerco.constructioncompany@gmail.com
                   </a>
                 </div>
               </div>
@@ -61,8 +66,8 @@ export default function ContactUsPage() {
                 </div>
                 <div>
                   <h6 className="fw-bold mb-1">Phone</h6>
-                  <a href="tel:+14058888888" className="walker-contact-link">
-                    +1 (405) 888-8888
+                  <a href="tel:+19013182013" className="walker-contact-link">
+                    +1 (901) 318-2013
                   </a>
                 </div>
               </div>
@@ -71,16 +76,36 @@ export default function ContactUsPage() {
 
               <h6 className="fw-bold mb-3">Follow Us</h6>
               <div className="d-flex gap-2">
-                <a href="https://www.facebook.com/walker_vision_co" target="_blank" rel="noopener noreferrer" className="walker-social-icon">
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="walker-social-icon"
+                >
                   <i className="ri-facebook-fill"></i>
                 </a>
-                <a href="https://x.com/walker_vision_co" target="_blank" rel="noopener noreferrer" className="walker-social-icon">
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="walker-social-icon"
+                >
                   <i className="ri-twitter-x-line"></i>
                 </a>
-                <a href="https://www.instagram.com/walker_vision_co/" target="_blank" rel="noopener noreferrer" className="walker-social-icon">
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="walker-social-icon"
+                >
                   <i className="ri-instagram-line"></i>
                 </a>
-                <a href="https://www.linkedin.com/company/walker-vision-co/" target="_blank" rel="noopener noreferrer" className="walker-social-icon">
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="walker-social-icon"
+                >
                   <i className="ri-linkedin-fill"></i>
                 </a>
               </div>

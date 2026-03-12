@@ -12,7 +12,7 @@ function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
 }
 const RECIPIENT =
-  process.env.QUOTE_RECIPIENT_EMAIL || "hello@walkervisionco.com";
+  process.env.QUOTE_RECIPIENT_EMAIL || "walkerco.constructioncompany@gmail.com";
 
 export async function POST(request: Request) {
   try {
