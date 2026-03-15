@@ -78,7 +78,7 @@ const AboutUsContent = () => {
                   </p>
 
                   <Link
-                    href="/about-us/"
+                    href="/#about"
                     className="link style-one fw-semibold d-inline-block mb-4"
                   >
                     Read Our Story{" "}

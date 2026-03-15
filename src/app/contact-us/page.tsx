@@ -77,7 +77,7 @@ export default function ContactUsPage() {
               <h6 className="fw-bold mb-3">Follow Us</h6>
               <div className="d-flex gap-2">
                 <a
-                  href=""
+                  href="https://www.facebook.com/walker_vision_co"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="walker-social-icon"
@@ -85,7 +85,7 @@ export default function ContactUsPage() {
                   <i className="ri-facebook-fill"></i>
                 </a>
                 <a
-                  href=""
+                  href="https://x.com/walker_vision_co"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="walker-social-icon"
@@ -93,7 +93,7 @@ export default function ContactUsPage() {
                   <i className="ri-twitter-x-line"></i>
                 </a>
                 <a
-                  href=""
+                  href="https://www.instagram.com/walker_vision_co/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="walker-social-icon"
@@ -101,7 +101,7 @@ export default function ContactUsPage() {
                   <i className="ri-instagram-line"></i>
                 </a>
                 <a
-                  href=""
+                  href="https://www.linkedin.com/company/walker-vision-co/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="walker-social-icon"

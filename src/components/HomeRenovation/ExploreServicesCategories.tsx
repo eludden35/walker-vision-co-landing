@@ -76,7 +76,7 @@ const ExploreServicesCategories = () => {
                 </span>
                 <h6 className="fs-18 fw-semibold mb-0">{category.title}</h6>
                 <Link
-                  href="/services"
+                  href="/#services"
                   className="position-absolute top-0 start-0 w-100 h-100"
                 ></Link>
               </div>
@@ -86,7 +86,7 @@ const ExploreServicesCategories = () => {
 
         <p className="text-center mt-xl-4">
           Discover top-tier real estate development services{" "}
-          <Link href="/services" className="link style-one fw-semibold">
+          <Link href="/#services" className="link style-one fw-semibold">
             View All Categories{" "}
             <Image
               src="/images/icons/right-arrow-long.svg"

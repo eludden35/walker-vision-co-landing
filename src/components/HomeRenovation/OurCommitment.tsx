@@ -87,7 +87,7 @@ const commitmentData = {
   ],
   button: {
     text: "More About Us",
-    url: "/about-us/",
+    url: "/#about",
   },
 };
 

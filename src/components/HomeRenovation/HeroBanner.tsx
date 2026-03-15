@@ -43,7 +43,7 @@ const HeroBanner = () => {
               </p>
 
               <div className="d-flex flex-column flex-md-row gap-4 justify-content-center align-items-center">
-                <Link href="/services" className="btn walker-hero-btn-primary">
+                <Link href="/get-a-quote/" className="btn walker-hero-btn-primary">
                   <span className="d-flex align-items-center gap-2">
                     Start Your Project
                     <i className="ri-arrow-right-line"></i>
@@ -51,7 +51,7 @@ const HeroBanner = () => {
                 </Link>
 
                 <Link
-                  href="/projects"
+                  href="/#projects"
                   className="btn walker-hero-btn-secondary"
                 >
                   View Our Work
