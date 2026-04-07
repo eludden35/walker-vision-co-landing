@@ -7,6 +7,7 @@ import {
   generateEstimateNumber,
   type EstimateData,
 } from "@/lib/generateEstimatePdf";
+import { createAdminClient } from "@/utils/supabase/admin";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
@@ -53,6 +54,29 @@ export async function POST(request: Request) {
       items,
       total,
     };
+
+    const contactForDb = {
+      name: parsed.contact.name,
+      email: parsed.contact.email,
+      phone: parsed.contact.phone,
+      address: parsed.contact.address,
+      notes: parsed.contact.notes,
+    };
+    const admin = createAdminClient();
+    const { error: dbError } = await admin.from("quote_submissions").insert({
+      estimate_number: estimateNumber,
+      contact: contactForDb,
+      selections: parsed.selections,
+      total,
+      line_items: items,
+    });
+    if (dbError) {
+      console.error("Quote DB insert error:", dbError);
+      return NextResponse.json(
+        { error: "Failed to save quote" },
+        { status: 500 },
+      );
+    }
 
     const pdfBuffer = await generateEstimatePdf(estimateData);
 

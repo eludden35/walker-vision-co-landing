@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { ContactPayloadSchema } from "@/lib/quoteSchema";
+import { createAdminClient } from "@/utils/supabase/admin";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
@@ -14,6 +15,22 @@ export async function POST(request: Request) {
 
     if (parsed.honeypot) {
       return NextResponse.json({ success: true });
+    }
+
+    const admin = createAdminClient();
+    const { error: dbError } = await admin.from("contact_messages").insert({
+      name: parsed.name,
+      email: parsed.email,
+      phone: parsed.phone ?? null,
+      subject: parsed.subject,
+      message: parsed.message,
+    });
+    if (dbError) {
+      console.error("Contact DB insert error:", dbError);
+      return NextResponse.json(
+        { error: "Failed to save message" },
+        { status: 500 },
+      );
     }
 
     const emailHtml = `
