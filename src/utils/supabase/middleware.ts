@@ -3,20 +3,21 @@ import { type NextRequest, NextResponse } from "next/server";
 import { hasSupabaseBrowserConfig } from "./env";
 
 /**
- * Matches Supabase middleware client pattern; call `getUser()` on the returned client
- * inside `updateSession` so the session is refreshed on the response.
+ * Refreshes the Supabase session and returns a response whose cookies match the
+ * refreshed session. Uses a single NextResponse cloned from `request` (Supabase +
+ * Next.js 15 pattern) to avoid broken request chains that can surface as 500s.
  */
-export function createMiddlewareSupabaseClient(request: NextRequest) {
+export async function updateSession(request: NextRequest) {
+  if (!hasSupabaseBrowserConfig()) {
+    return NextResponse.next({ request });
+  }
+
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
   const supabaseKey =
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY ??
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
-  let supabaseResponse = NextResponse.next({
-    request: {
-      headers: request.headers,
-    },
-  });
+  let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(supabaseUrl, supabaseKey, {
     cookies: {
@@ -24,28 +25,20 @@ export function createMiddlewareSupabaseClient(request: NextRequest) {
         return request.cookies.getAll();
       },
       setAll(cookiesToSet) {
-        cookiesToSet.forEach(({ name, value }) =>
-          request.cookies.set(name, value),
-        );
-        supabaseResponse = NextResponse.next({
-          request,
+        try {
+          cookiesToSet.forEach(({ name, value }) => {
+            request.cookies.set(name, value);
+          });
+        } catch {
+          /* Next may reject in-place request cookie mutation; response cookies still apply */
+        }
+        supabaseResponse = NextResponse.next({ request });
+        cookiesToSet.forEach(({ name, value, options }) => {
+          supabaseResponse.cookies.set(name, value, options);
         });
-        cookiesToSet.forEach(({ name, value, options }) =>
-          supabaseResponse.cookies.set(name, value, options),
-        );
       },
     },
   });
-
-  return { supabase, supabaseResponse };
-}
-
-export async function updateSession(request: NextRequest) {
-  if (!hasSupabaseBrowserConfig()) {
-    return NextResponse.next({ request });
-  }
-
-  const { supabase, supabaseResponse } = createMiddlewareSupabaseClient(request);
 
   const {
     data: { user },

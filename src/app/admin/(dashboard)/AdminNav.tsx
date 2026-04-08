@@ -1,11 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
+
+function navLinkClass(pathname: string, prefix: string, exact?: boolean) {
+  const active =
+    exact === true
+      ? pathname === prefix || pathname === `${prefix}/`
+      : pathname === prefix ||
+        pathname === `${prefix}/` ||
+        pathname.startsWith(`${prefix}/`);
+  return `walker-admin-portal-nav-link${active ? " walker-admin-portal-nav-link--active" : ""}`;
+}
 
 export default function AdminNav() {
   const router = useRouter();
+  const pathname = usePathname() ?? "";
 
   async function handleSignOut() {
     const supabase = createClient();
@@ -15,27 +26,50 @@ export default function AdminNav() {
   }
 
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-dark mb-4">
-      <div className="container-fluid px-3 px-md-4">
-        <Link className="navbar-brand" href="/admin">
-          Walker Vision — Admin
-        </Link>
-        <div className="navbar-nav ms-auto flex-row gap-3 align-items-center">
-          <Link className="nav-link text-white-50" href="/admin/quotes">
+    <header className="walker-admin-portal-nav">
+      <div className="walker-admin-portal-nav-inner">
+        <div className="walker-admin-portal-brand-block">
+          <span className="walker-brand-text">Walker Vision Co.</span>
+          <span className="walker-admin-portal-brand-admin">Admin</span>
+        </div>
+
+        <nav
+          className="walker-admin-portal-nav-links"
+          aria-label="Admin sections"
+        >
+          <Link
+            href="/admin"
+            className={navLinkClass(pathname, "/admin", true)}
+          >
+            Dashboard
+          </Link>
+          <Link
+            href="/admin/quotes"
+            className={navLinkClass(pathname, "/admin/quotes")}
+          >
             Quotes
           </Link>
-          <Link className="nav-link text-white-50" href="/admin/contacts">
+          <Link
+            href="/admin/contacts"
+            className={navLinkClass(pathname, "/admin/contacts")}
+          >
             Contacts
+          </Link>
+        </nav>
+
+        <div className="walker-admin-portal-nav-actions">
+          <Link href="/" className="walker-admin-portal-site-link">
+            View site
           </Link>
           <button
             type="button"
-            className="btn btn-outline-light btn-sm"
+            className="btn walker-admin-portal-btn-signout"
             onClick={() => void handleSignOut()}
           >
             Sign out
           </button>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

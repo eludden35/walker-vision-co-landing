@@ -30,34 +30,30 @@ export default async function AdminContactDetailPage({ params }: Props) {
 
   return (
     <div>
-      <Link
-        href="/admin/contacts"
-        className="small text-decoration-none mb-3 d-inline-block"
-      >
-        ← Back to contacts
+      <Link href="/admin/contacts" className="walker-admin-portal-back-link">
+        <i className="ri-arrow-left-line" aria-hidden />
+        Back to contacts
       </Link>
-      <h1 className="h3 mb-1">{row.subject}</h1>
-      <p className="text-secondary small mb-4">{created}</p>
+      <h1 className="walker-admin-portal-page-title mb-2">{row.subject}</h1>
+      <p className="walker-admin-portal-muted small mb-4">{created}</p>
 
-      <div className="card shadow-sm">
-        <div className="card-header bg-white fw-semibold">Sender</div>
-        <div className="card-body">
-          <table className="table table-sm mb-0">
+      <div className="walker-admin-portal-panel mb-4">
+        <div className="walker-admin-portal-panel-header">Sender</div>
+        <div className="walker-admin-portal-panel-body">
+          <table className="table table-sm mb-0 walker-admin-portal-detail-table">
             <tbody>
               <tr>
-                <th className="text-secondary" style={{ width: "28%" }}>
-                  Name
-                </th>
+                <th scope="row">Name</th>
                 <td>{row.name}</td>
               </tr>
               <tr>
-                <th className="text-secondary">Email</th>
+                <th scope="row">Email</th>
                 <td>
                   <a href={`mailto:${row.email}`}>{row.email}</a>
                 </td>
               </tr>
               <tr>
-                <th className="text-secondary">Phone</th>
+                <th scope="row">Phone</th>
                 <td>
                   {row.phone ? (
                     <a href={`tel:${row.phone}`}>{row.phone}</a>
@@ -69,8 +65,11 @@ export default async function AdminContactDetailPage({ params }: Props) {
             </tbody>
           </table>
         </div>
-        <div className="card-header bg-white fw-semibold border-top">Message</div>
-        <div className="card-body">
+      </div>
+
+      <div className="walker-admin-portal-panel">
+        <div className="walker-admin-portal-panel-header">Message</div>
+        <div className="walker-admin-portal-panel-body">
           <p className="mb-0" style={{ whiteSpace: "pre-wrap" }}>
             {row.message}
           </p>

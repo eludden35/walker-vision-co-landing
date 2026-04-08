@@ -1399,4 +1399,709 @@ body {
   .walker-logo-text {
     font-size: 16px;
   }
-}/*# sourceMappingURL=dark-theme.css.map */
+}
+
+/* --------------------------------------------------------------------------
+   Admin login (landing-style full-viewport + card)
+   -------------------------------------------------------------------------- */
+
+.walker-admin-login {
+  min-height: 100dvh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 88px 0 48px;
+}
+
+.walker-admin-login-bg {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.walker-admin-login-bg-img {
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 1s ease;
+}
+
+.walker-admin-login:hover .walker-admin-login-bg-img {
+  filter: grayscale(0%);
+}
+
+.walker-admin-login-overlay {
+  background: linear-gradient(
+    to top,
+    var(--walker-dark-bg) 0%,
+    rgba(15, 15, 15, 0.88) 45%,
+    rgba(15, 15, 15, 0.5) 100%
+  );
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.walker-admin-login-inner {
+  z-index: 10;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 32px);
+  padding-right: clamp(16px, 4vw, 32px);
+}
+
+.walker-admin-login-back {
+  top: clamp(16px, 3vw, 28px);
+  left: clamp(16px, 4vw, 32px);
+  z-index: 20;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.25s ease;
+}
+
+.walker-admin-login-back:hover {
+  color: var(--walker-gold);
+}
+
+.walker-admin-login-headline {
+  font-size: clamp(40px, 8vw, 72px);
+  font-weight: 700;
+  color: var(--walker-text-white);
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+
+.walker-admin-login-lead {
+  font-size: 17px;
+  color: var(--walker-text-gray);
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 420px;
+}
+
+.walker-admin-login-card {
+  background: rgba(26, 26, 26, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--walker-border);
+  border-radius: 20px;
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.walker-admin-login-card-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: var(--walker-gold);
+  margin-bottom: 12px;
+}
+
+.walker-admin-login-card-hint {
+  font-size: 14px;
+  color: var(--walker-text-gray);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.walker-admin-login-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.walker-admin-login-input {
+  background-color: rgba(15, 15, 15, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: var(--walker-text-white) !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+  font-size: 15px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.walker-admin-login-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.walker-admin-login-input:focus {
+  border-color: var(--walker-gold) !important;
+  box-shadow: 0 0 0 3px rgba(175, 158, 109, 0.25) !important;
+  outline: none !important;
+}
+
+.walker-admin-login-alert {
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.walker-admin-login-alert--error {
+  background: rgba(180, 60, 60, 0.18);
+  border: 1px solid rgba(220, 100, 100, 0.35);
+  color: rgba(255, 220, 220, 0.95);
+}
+
+.walker-admin-login-submit-error {
+  color: #f0a8a8;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.walker-admin-login-live:empty {
+  display: none;
+}
+
+.walker-admin-login .walker-hero-btn-primary:disabled {
+  opacity: 0.55;
+  transform: none;
+  cursor: not-allowed;
+}
+
+@media (max-width: 991px) {
+  .walker-admin-login {
+    padding-top: 72px;
+  }
+
+  .walker-admin-login-lead {
+    max-width: 520px;
+  }
+}
+
+@media (min-width: 992px) {
+  .walker-admin-login-headline br {
+    display: block;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Admin portal (dashboard) — dark shell, nav, tables, panels
+   -------------------------------------------------------------------------- */
+
+.walker-admin-portal-shell {
+  background-color: var(--walker-dark-bg);
+  color: var(--walker-text-white);
+}
+
+.walker-admin-portal-nav {
+  border-bottom: 1px solid var(--walker-border);
+  box-shadow: inset 0 1px 0 0 rgba(175, 158, 109, 0.35);
+  background: rgba(15, 15, 15, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.walker-admin-portal-nav-inner {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 14px clamp(16px, 4vw, 32px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+}
+
+.walker-admin-portal-brand-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.walker-admin-portal-brand-block .walker-brand-text {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.walker-admin-portal-brand-admin {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-weight: 600;
+  color: var(--walker-gold);
+}
+
+.walker-admin-portal-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.walker-admin-portal-nav-link {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.walker-admin-portal-nav-link:hover {
+  color: var(--walker-text-white);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.walker-admin-portal-nav-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(175, 158, 109, 0.35);
+}
+
+.walker-admin-portal-nav-link--active {
+  color: var(--walker-gold);
+  background-color: rgba(175, 158, 109, 0.12);
+}
+
+.walker-admin-portal-nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.walker-admin-portal-site-link {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.walker-admin-portal-site-link:hover {
+  color: var(--walker-gold);
+}
+
+.walker-admin-portal-site-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(175, 158, 109, 0.35);
+  border-radius: 4px;
+}
+
+.walker-admin-portal-btn-signout {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: var(--walker-text-white) !important;
+  font-size: 11px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  padding: 10px 18px !important;
+  border-radius: 8px;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.walker-admin-portal-btn-signout:hover {
+  border-color: var(--walker-gold) !important;
+  color: var(--walker-gold) !important;
+  background-color: rgba(175, 158, 109, 0.08) !important;
+}
+
+.walker-admin-portal-btn-signout:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(175, 158, 109, 0.35);
+}
+
+.walker-admin-portal-main {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.walker-admin-portal-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-weight: 600;
+  color: var(--walker-gold);
+  margin-bottom: 10px;
+}
+
+.walker-admin-portal-page-title {
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 700;
+  color: var(--walker-text-white);
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.walker-admin-portal-muted {
+  color: var(--walker-text-gray);
+}
+
+.walker-admin-portal-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.2s ease;
+}
+
+.walker-admin-portal-back-link:hover {
+  color: var(--walker-gold);
+}
+
+.walker-admin-portal-back-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(175, 158, 109, 0.35);
+  border-radius: 4px;
+}
+
+.walker-admin-portal-card {
+  background: rgba(26, 26, 26, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--walker-border);
+  border-radius: 16px;
+  padding: clamp(22px, 3vw, 28px);
+  height: 100%;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.walker-admin-portal-card-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: var(--walker-gold);
+  margin-bottom: 12px;
+}
+
+.walker-admin-portal-card-stat {
+  font-size: clamp(40px, 6vw, 52px);
+  font-weight: 700;
+  color: var(--walker-text-white);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.walker-admin-portal-card .walker-hero-btn-primary {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 12px 22px !important;
+  font-size: 12px !important;
+}
+
+.walker-admin-portal-input {
+  background-color: rgba(15, 15, 15, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: var(--walker-text-white) !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  font-size: 14px;
+  min-width: 0;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.walker-admin-portal-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.walker-admin-portal-input:focus {
+  border-color: var(--walker-gold) !important;
+  box-shadow: 0 0 0 3px rgba(175, 158, 109, 0.25) !important;
+  outline: none !important;
+}
+
+.walker-admin-portal-btn-search {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: var(--walker-text-white) !important;
+  font-size: 11px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 10px 16px !important;
+  border-radius: 10px;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.walker-admin-portal-btn-search:hover {
+  border-color: var(--walker-gold) !important;
+  color: var(--walker-gold) !important;
+}
+
+.walker-admin-portal-btn-search:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(175, 158, 109, 0.35);
+}
+
+.walker-admin-portal-alert {
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.walker-admin-portal-alert--error {
+  background: rgba(180, 60, 60, 0.18);
+  border: 1px solid rgba(220, 100, 100, 0.35);
+  color: rgba(255, 220, 220, 0.95);
+}
+
+.walker-admin-quote-success {
+  border-radius: 14px;
+  padding: 20px 22px 22px;
+  background: rgba(40, 52, 38, 0.45);
+  border: 1px solid rgba(120, 175, 110, 0.35);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.92);
+  outline: none;
+}
+
+.walker-admin-quote-success:focus-visible {
+  box-shadow: 0 0 0 3px rgba(175, 158, 109, 0.4);
+}
+
+.walker-admin-quote-success-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+  letter-spacing: 0.02em;
+  color: rgba(200, 230, 190, 0.98);
+}
+
+.walker-admin-quote-success-list li {
+  margin-bottom: 6px;
+}
+
+.walker-admin-quote-success-list a {
+  color: rgba(200, 220, 255, 0.95);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.walker-admin-quote-success-list a:hover {
+  color: #fff;
+}
+
+.walker-admin-portal-table-wrap {
+  border: 1px solid var(--walker-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(26, 26, 26, 0.45);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+.walker-admin-portal-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--walker-text-white);
+  margin-bottom: 0;
+  color: var(--walker-text-white);
+}
+
+.walker-admin-portal-table thead th {
+  background: rgba(15, 15, 15, 0.85);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--walker-border);
+  padding: 14px 16px;
+  white-space: nowrap;
+}
+
+.walker-admin-portal-table tbody td {
+  border-color: var(--walker-border);
+  padding: 14px 16px;
+  vertical-align: middle;
+}
+
+.walker-admin-portal-table tbody tr:hover td {
+  background-color: rgba(175, 158, 109, 0.06);
+}
+
+.walker-admin-portal-table .walker-admin-portal-table-empty {
+  color: var(--walker-text-gray);
+  text-align: center;
+  padding: 40px 16px !important;
+}
+
+.walker-admin-portal-btn-table {
+  font-size: 11px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding: 8px 14px !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: var(--walker-text-white) !important;
+  background: transparent !important;
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.walker-admin-portal-btn-table:hover {
+  border-color: var(--walker-gold) !important;
+  color: var(--walker-gold) !important;
+  background-color: rgba(175, 158, 109, 0.1) !important;
+}
+
+.walker-admin-portal-pagination .walker-admin-portal-btn-page {
+  font-size: 11px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding: 8px 16px !important;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: var(--walker-text-white) !important;
+  background: transparent !important;
+  text-decoration: none;
+}
+
+.walker-admin-portal-pagination .walker-admin-portal-btn-page:hover {
+  border-color: var(--walker-gold) !important;
+  color: var(--walker-gold) !important;
+}
+
+.walker-admin-portal-panel {
+  border: 1px solid var(--walker-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(26, 26, 26, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+  margin-bottom: 0;
+}
+
+.walker-admin-portal-panel-header {
+  padding: 14px 18px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: var(--walker-gold);
+  background: rgba(15, 15, 15, 0.6);
+  border-bottom: 1px solid var(--walker-border);
+}
+
+.walker-admin-portal-panel-body {
+  padding: 18px;
+}
+
+.walker-admin-portal-panel-body--flush {
+  padding: 0;
+}
+
+.walker-admin-portal-detail-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--walker-text-white);
+  margin-bottom: 0;
+  color: var(--walker-text-white);
+}
+
+.walker-admin-portal-detail-table th {
+  color: var(--walker-text-gray);
+  font-size: 12px;
+  font-weight: 600;
+  width: 28%;
+  padding: 10px 14px;
+  border-color: var(--walker-border);
+  vertical-align: top;
+}
+
+.walker-admin-portal-detail-table td {
+  padding: 10px 14px;
+  border-color: var(--walker-border);
+}
+
+.walker-admin-portal-detail-table a {
+  color: var(--walker-gold-light);
+  text-decoration: none;
+}
+
+.walker-admin-portal-detail-table a:hover {
+  text-decoration: underline;
+  color: var(--walker-gold);
+}
+
+.walker-admin-portal-total-row td {
+  background: rgba(15, 15, 15, 0.75) !important;
+  font-weight: 700;
+  color: var(--walker-text-white);
+  border-top: 1px solid var(--walker-border);
+}
+
+.walker-admin-portal-pre {
+  font-size: 12px;
+  background: rgba(15, 15, 15, 0.75);
+  border: 1px solid var(--walker-border);
+  border-radius: 10px;
+  padding: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  max-height: 320px;
+}
+
+.walker-admin-portal-details summary {
+  color: var(--walker-text-gray);
+  cursor: pointer;
+}
+
+.walker-admin-portal-details summary:hover {
+  color: var(--walker-gold);
+}
+
+@media (max-width: 767px) {
+  .walker-admin-portal-nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .walker-admin-portal-nav-actions {
+    margin-left: auto;
+  }
+}
+/*# sourceMappingURL=dark-theme.css.map */

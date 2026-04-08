@@ -4,6 +4,8 @@ export default function AdminRootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="admin-portal min-vh-100 bg-light text-dark">{children}</div>
+    <div className="admin-portal walker-admin-portal-shell min-vh-100">
+      {children}
+    </div>
   );
 }

@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 import AdminNav from "./AdminNav";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboardLayout({
   children,
 }: {
@@ -18,11 +20,16 @@ export default async function AdminDashboardLayout({
     redirect("/admin/login");
   }
 
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from("profiles")
     .select("role")
     .eq("id", user.id)
     .maybeSingle();
+
+  if (profileError) {
+    console.error("Admin layout profiles error:", profileError.message);
+    redirect("/admin/login?error=auth");
+  }
 
   if (!profile || profile.role !== "admin") {
     redirect("/admin/login?error=forbidden");
@@ -31,7 +38,9 @@ export default async function AdminDashboardLayout({
   return (
     <>
       <AdminNav />
-      <div className="container-fluid px-3 px-md-4 pb-5">{children}</div>
+      <div className="walker-admin-portal-main container-fluid px-3 px-md-4 pb-5 pt-4">
+        {children}
+      </div>
     </>
   );
 }
